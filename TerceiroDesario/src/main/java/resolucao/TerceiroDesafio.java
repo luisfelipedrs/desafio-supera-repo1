@@ -1,6 +1,6 @@
 package resolucao;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class TerceiroDesafio {
     public static void main(String[] args) {
@@ -9,11 +9,20 @@ public class TerceiroDesafio {
 
         int n = sc.nextInt();
         int k = sc.nextInt();
-        int[] arr = new int[n];
+        Set<Integer> numeros = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+            numeros.add(sc.nextInt());
         }
 
+        int counter = 0;
+        for (int numero : numeros) {
+            int target = k + numero;
+            if (numeros.contains(target)) {
+                counter++;
+            }
+        }
+
+        System.out.println(counter);
     }
 }
